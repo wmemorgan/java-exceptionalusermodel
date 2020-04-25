@@ -625,20 +625,6 @@ The table layout is as follows
 
 </details>
 
-<details>
-<summary>http://localhost:2019/useremails/useremail/8888</summary>
-
-```JSON
-{
-    "timestamp": "2020-03-17T23:31:55.974+0000",
-    "status": 500,
-    "error": "Internal Server Error",
-    "message": "Useremail with id 8888 Not Found!",
-    "trace": "javax.persistence.EntityNotFoundException: Useremail with id 8888 Not Found!\n\tat com.lambdaschool.usermodel.services.UseremailServiceImpl.lambda$findUseremailById$0(UseremailServiceImpl.java:51)\n\tat java.base/java.util.Optional.orElseThrow(Optional.java:408)\n\tat com.lambdaschool.usermodel.services.UseremailServiceImpl.findUseremailById(UseremailServiceImpl.java:51)\n\tat com.lambdaschool.usermodel.services.UseremailServiceImpl$$FastClassBySpringCGLIB$$f1b1885e.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)\n\tat org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)\n\tat org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99)\n\tat org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)\n\tat org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)\n\tat org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)\n\tat com.lambdaschool.usermodel.services.UseremailServiceImpl$$EnhancerBySpringCGLIB$$ea467b52.findUseremailById(<generated>)\n\tat com.lambdaschool.usermodel.controllers.UseremailController.getUserEmailById(UseremailController.java:57)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:566)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)\n\tat org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)\n\tat org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)\n\tat org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)\n\tat org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)\n\tat org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)\n\tat org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)\n\tat org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)\n\tat org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:634)\n\tat org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:741)\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\n\tat org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\n\tat org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\n\tat org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\n\tat org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)\n\tat org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)\n\tat org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)\n\tat org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)\n\tat org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)\n\tat org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)\n\tat org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)\n\tat org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)\n\tat org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)\n\tat org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)\n\tat org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)\n\tat org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)\n\tat org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)\n\tat org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)\n\tat org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639)\n\tat org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
-    "path": "/useremails/useremail/8888"
-}
-```
-
 </details>
 
 <details>
@@ -2334,9 +2320,241 @@ Status 201 Created
 
 </details>
 
+---
+
 ### Expand each section below to see the results of exception handling
 
+<details>
+<summary>ID not found http://localhost:2019/useremails/useremail/8888</summary>
+
+```JSON
+{
+    "title": "Resource Not Found",
+    "status": 404,
+    "detail": "Error from a Lambda School Application Useremail with id 8888 Not Found!",
+    "timestamp": "2020-04-24 14:50:31",
+    "developerMessage": "com.lambdaschool.usermodel.exceptions.ResourceNotFoundException",
+    "errors": []
+}
+```
+
+</details>
+
+<details>
+<summary>Adding a duplicate http://localhost:2019/roles/role</summary>
+
+DATA
+
+```JSON
+{
+    "name" : "DATA"
+}```
+
+OUTPUT
+
+```JSON
+{
+    "title": "Internal Server Error",
+    "status": 500,
+    "detail": "could not execute statement; SQL [n/a]; constraint [\"PUBLIC.UK_OFX66KERUAPI6VYQPV6F2OR37_INDEX_4 ON PUBLIC.ROLES(NAME) VALUES 3\"; SQL statement:\ninsert into roles (created_by, created_date, last_modified_by, last_modified_date, name, roleid) values (?, ?, ?, ?, ?, ?) [23505-200]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement",
+    "timestamp": "2020-04-24 14:51:12",
+    "developerMessage": "path: /roles/role",
+    "errors": []
+}
+```
+
+</details>
+
+<details>
+<summary>Resource Found POST http://localhost:2019/users/user/15/role/1</summary>
+
+```JSON
+{
+    "title": "Unexpected Resource",
+    "status": 400,
+    "detail": "Error from a Lambda School Application Role and User Combination Already Exists",
+    "timestamp": "2020-04-24 14:54:25",
+    "developerMessage": "com.lambdaschool.usermodel.exceptions.ResourceFoundException",
+    "errors": []
+}
+```
+
+</details>
+
+<details>
+<summary>Missing From JSON POST http://localhost:2019/users/user</summary>
+
+DATA
+
+```JSON
+{
+    "username": "Mojo",
+    "primaryemail": "mojo@lambdaschool.local",
+    "useremails": [
+        {
+            "useremail": "mojo@mymail.local"
+        },
+        {
+            "useremail": "mojo@email.local"
+        }
+        ],
+    "roles": [
+        {
+            "role": {
+                "roleid": 1
+            }
+        },
+        {
+            "role": {
+                "roleid": 2
+            }
+        }
+    ]
+}
+```
+
+```JSON
+{
+    "title": "Method Argument Not Valid",
+    "status": 400,
+    "detail": "uri=/users/user | parameter: method 'addNewUser' parameter 0",
+    "timestamp": "2020-04-24 14:56:21",
+    "developerMessage": "org.springframework.validation.BeanPropertyBindingResult: 1 errors\nField error in object 'user' on field 'password': rejected value [null]; codes [NotNull.user.password,NotNull.password,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.password,password]; arguments []; default message [password]]; default message [must not be null]",
+    "errors": []
+}
+```
+
+</details>
+
+<details>
+<summary>Email Wrong Format POST http://localhost:2019/users/user</summary>
+
+DATA
+
+```JSON
+{
+    "username": "Mojo",
+    "primaryemail": "mojo@lambdaschool.local",
+    "password" : "Coffee123",
+    "useremails": [
+        {
+            "useremail": "mojol"
+        },
+        {
+            "useremail": "mojo@email.local"
+        }
+        ],
+    "roles": [
+        {
+            "role": {
+                "roleid": 1
+            }
+        },
+        {
+            "role": {
+                "roleid": 2
+            }
+        }
+    ]
+}
+
+```
+
+OUTPUT
+
+```JSON
+{
+    "title": "Internal Server Error",
+    "status": 500,
+    "detail": "Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction",
+    "timestamp": "2020-04-24 14:58:45",
+    "developerMessage": "path: /users/user",
+    "errors": [
+        {
+            "message": "must be a well-formed email address",
+            "code": "mojol"
+        }
+    ]
+}
+```
+
+</details>
+
+<details>
+<summary>Wrong Method GET http://localhost:2019/users/user</summary>
+
+```JSON
+{
+    "title": "Incorrect method: GET",
+    "status": 405,
+    "detail": "Path: uri=/users/user | Supported Methods are: [POST]",
+    "timestamp": "2020-04-24 14:59:59",
+    "developerMessage": "HTTP Method Not Valid for Endpoint (check for valid URI and proper HTTP Method)",
+    "errors": []
+}
+```
+
+</details>
+
+<details>
+<summary>Invalid endpoint http://localhost:2019/turtle</summary>
+
+```JSON
+{
+    "title": "Rest Endpoint Not Valid",
+    "status": 404,
+    "detail": "uri=/turtle",
+    "timestamp": "2020-04-24 15:00:59",
+    "developerMessage": "Rest Handler Not Found (check for valid URI)",
+    "errors": []
+}
+```
+
+</details>
+
 ### Expand each section below to see the results of getting data from other APIs
+
+<details>
+<summary>http://localhost:2019/otherapis/populatecountrydata/usa</summary>
+
+```TEXT
+Status 201 Created
+```
+
+</details>
+
+<details>
+<summary>http://localhost:2019/otherapis/currentcountrydata</summary>
+
+```JSON
+{
+    "name": "United States of America",
+    "topleveldomain": null,
+    "demonym": "American",
+    "population": 323947000,
+    "currencies": [
+        {
+            "code": "USD",
+            "name": "United States dollar",
+            "symbol": "$"
+        }
+    ],
+    "translations": {
+        "de": "Vereinigte Staaten von Amerika",
+        "es": "Estados Unidos",
+        "fr": "États-Unis",
+        "ja": "アメリカ合衆国",
+        "it": "Stati Uniti D'America",
+        "br": "Estados Unidos",
+        "pt": "Estados Unidos",
+        "nl": "Verenigde Staten",
+        "hr": "Sjedinjene Američke Države",
+        "fa": "ایالات متحده آمریکا"
+    }
+}
+```
+
+</details>
 
 ### Click on the link below to see a PDF of the Custom Swagger Documentation
 

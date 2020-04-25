@@ -1,5 +1,6 @@
 package com.lambdaschool.usermodel.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +40,7 @@ public class ErrorDetail
     /**
      * If data validation errors caused this error, the list of them will appear here.
      */
-    private Map<String, List<ValidationError>> errors = new HashMap<String, List<ValidationError>>();
+    private List<ValidationError> errors = new ArrayList<>();
 
     /**
      * Default constructor for this class
@@ -153,7 +154,7 @@ public class ErrorDetail
      *
      * @return The list of validation errors, if any, for this error
      */
-    public Map<String, List<ValidationError>> getErrors()
+    public List<ValidationError> getErrors()
     {
         return errors;
     }
@@ -163,7 +164,7 @@ public class ErrorDetail
      *
      * @param errors The new list of validation errors, if any, for this error
      */
-    public void setErrors(Map<String, List<ValidationError>> errors)
+    public void setErrors(List<ValidationError> errors)
     {
         this.errors = errors;
     }

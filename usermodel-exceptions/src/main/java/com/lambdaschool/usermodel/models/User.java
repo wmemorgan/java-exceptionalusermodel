@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ public class User
     @Size(min = 2,
         max = 30,
         message = "User Name must be between 2 and 30 characters")
+    @NotNull
     @Column(nullable = false,
         unique = true)
     private String username;
@@ -62,6 +64,7 @@ public class User
         example = "ILuvM4th!")
     @Size(min = 4,
         message = "Password must 4 or more characters")
+    @NotNull
     @Column(nullable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
@@ -74,6 +77,7 @@ public class User
         value = "The email for this user",
         required = true,
         example = "john@lambdaschool.com")
+    @NotNull
     @Column(nullable = false,
         unique = true)
     @Email
