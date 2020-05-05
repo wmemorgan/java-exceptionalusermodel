@@ -70,7 +70,7 @@ public class UserController
      * @return JSON object of the user you seek
      * @see UserService#findUserById(long) UserService.findUserById(long)
      */
-    @ApiOperation(value = "Retrieve a user based of off user id",
+    @ApiOperation(value = "Retrieve a user based off of user id",
         response = User.class)
     @ApiResponses(value = {@ApiResponse(code = 200,
         message = "User Found",
@@ -167,6 +167,8 @@ public class UserController
         consumes = {"application/json"})
     public ResponseEntity<?> addNewUser(
         @Valid
+        @ApiParam(value = "a full user object",
+            required = true)
         @RequestBody
             User newuser) throws
                           URISyntaxException

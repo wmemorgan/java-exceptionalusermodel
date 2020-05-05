@@ -5,13 +5,17 @@ import com.lambdaschool.usermodel.models.CountryData;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Collections;
 
 /**
  * The entry point to work with the Country Data API
@@ -39,9 +43,18 @@ public class CountryDataController
         @PathVariable
             String countrycode)
     {
+        // we need to tell our RestTemplate what format to expect
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        // a couple of common formats
+        // converter.setSupportedMediaTypes(Collections.singletonList(MediaType.TEXT_HTML));
+        // converter.setSupportedMediaTypes(Collections.singletonList(MediaType.APPLICATION_JSON));
+        // or we can accept all formats! Easiest but least secure
+        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
+        restTemplate.getMessageConverters().add(converter);
+
         // create the url to access the country data
         String requestURL = "https://restcountries.eu/rest/v2/alpha/" + countrycode;
-        // create the responseType expected. Notice the List<CountryData> is the data type we are expecting back from the API!
+        // create the responseType expected. Notice the CountryData is the data type we are expecting back from the API!
         ParameterizedTypeReference<CountryData> responseType = new ParameterizedTypeReference<>()
         {
         };
