@@ -160,7 +160,7 @@ public class UserController
         response = Void.class)
     @ApiResponses(value = {@ApiResponse(code = 200,
         message = "User Found",
-        response = User.class), @ApiResponse(code = 404,
+        response = Void.class), @ApiResponse(code = 404,
         message = "User Not Found",
         response = ErrorDetail.class)})
     @PostMapping(value = "/user",
@@ -201,13 +201,6 @@ public class UserController
      * @return status of OK
      * @see UserService#save(User) UserService.save(User)
      */
-    @ApiOperation(value = "updates a user given in the request body",
-        response = Void.class)
-    @ApiResponses(value = {@ApiResponse(code = 200,
-        message = "User Found",
-        response = User.class), @ApiResponse(code = 404,
-        message = "User Not Found",
-        response = ErrorDetail.class)})
     @PutMapping(value = "/user/{userid}",
         consumes = {"application/json"})
     public ResponseEntity<?> updateFullUser(
