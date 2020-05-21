@@ -1,18 +1,13 @@
 package com.lambdaschool.usermodel.exceptions;
 
+
 import com.lambdaschool.usermodel.handlers.HelperFunctions;
-import com.lambdaschool.usermodel.models.ValidationError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
