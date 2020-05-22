@@ -1,5 +1,6 @@
 package com.lambdaschool.usermodel.handlers;
 
+import com.lambdaschool.usermodel.models.CountryData;
 import com.lambdaschool.usermodel.models.ValidationError;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,12 @@ import java.util.List;
 @Component
 public class HelperFunctions
 {
+    /**
+     * A public field used to store data from another API. This will have to be populated each time the application is run.
+     * Population is done manually for each country code using an endpoint.
+     */
+    public static CountryData ourCountryData = new CountryData();
+
     /**
      * Searches to see if the exception has any constraint violations to report
      *
@@ -42,7 +49,7 @@ public class HelperFunctions
             {
                 ValidationError newVe = new ValidationError();
                 newVe.setCode(cv.getInvalidValue()
-                    .toString());
+                        .toString());
                 newVe.setMessage(cv.getMessage());
                 listVE.add(newVe);
             }

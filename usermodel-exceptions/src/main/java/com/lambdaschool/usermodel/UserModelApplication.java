@@ -18,12 +18,6 @@ import java.util.Scanner;
 public class UserModelApplication
 {
     /**
-     * A public field used to store data from another API. This will have to be populated each time the application is run.
-     * Population is done manually for each country code using an endpoint.
-     */
-    public static CountryData ourCountryData = new CountryData();
-
-    /**
      * Reads from a filename, which is hard coded in the method. The file should be formatted as<br>
      * name=value<br>
      * name=value<br>

@@ -1,7 +1,9 @@
 package com.lambdaschool.usermodel.controllers;
 
 import com.lambdaschool.usermodel.UserModelApplication;
+import com.lambdaschool.usermodel.handlers.HelperFunctions;
 import com.lambdaschool.usermodel.models.CountryData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -30,6 +32,12 @@ public class CountryDataController
      * We are the client getting data from a remote API.
      */
     private RestTemplate restTemplate = new RestTemplate();
+
+    /**
+     * Allows this class to use the Helper Function class
+     */
+    @Autowired
+    HelperFunctions hf;
 
     /**
      * Populates a public field from the main class. That field contains data from the last queried country
@@ -64,7 +72,7 @@ public class CountryDataController
             null,
             responseType);
         // now that we have our data, put it into our list!
-        UserModelApplication.ourCountryData = responseEntity.getBody();
+        hf.ourCountryData = responseEntity.getBody();
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -77,7 +85,7 @@ public class CountryDataController
     @GetMapping("/currentcountrydata")
     public ResponseEntity<?> listInfoForCountryData()
     {
-        return new ResponseEntity<>(UserModelApplication.ourCountryData,
+        return new ResponseEntity<>(hf.ourCountryData,
             HttpStatus.OK);
     }
 
