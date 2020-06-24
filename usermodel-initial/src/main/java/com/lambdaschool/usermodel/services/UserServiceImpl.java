@@ -1,5 +1,7 @@
 package com.lambdaschool.usermodel.services;
 
+import com.lambdaschool.usermodel.exceptions.ResourceFoundException;
+import com.lambdaschool.usermodel.exceptions.ResourceNotFoundException;
 import com.lambdaschool.usermodel.models.Role;
 import com.lambdaschool.usermodel.models.User;
 import com.lambdaschool.usermodel.models.UserRoles;
@@ -10,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityExistsException;
-import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,10 +42,10 @@ public class UserServiceImpl
     private UserAuditing userAuditing;
 
     public User findUserById(long id) throws
-                                      EntityNotFoundException
+                                      ResourceNotFoundException
     {
         return userrepos.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
+            .orElseThrow(() -> new ResourceNotFoundException("User id " + id + " not found!"));
     }
 
     @Override
@@ -73,7 +73,7 @@ public class UserServiceImpl
     public void delete(long id)
     {
         userrepos.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
+            .orElseThrow(() -> new ResourceNotFoundException("User id " + id + " not found!"));
         userrepos.deleteById(id);
     }
 
@@ -83,7 +83,7 @@ public class UserServiceImpl
         User uu = userrepos.findByUsername(name.toLowerCase());
         if (uu == null)
         {
-            throw new EntityNotFoundException("User name " + name + " not found!");
+            throw new ResourceNotFoundException("User name " + name + " not found!");
         }
         return uu;
     }
@@ -97,7 +97,7 @@ public class UserServiceImpl
         if (user.getUserid() != 0)
         {
             User oldUser = userrepos.findById(user.getUserid())
-                .orElseThrow(() -> new EntityNotFoundException("User id " + user.getUserid() + " not found!"));
+                .orElseThrow(() -> new ResourceNotFoundException("User id " + user.getUserid() + " not found!"));
 
             // delete the roles for the old user we are replacing
             for (UserRoles ur : oldUser.getRoles())
@@ -225,7 +225,7 @@ public class UserServiceImpl
         long roleid)
     {
         userrepos.findById(userid)
-            .orElseThrow(() -> new EntityNotFoundException("User id " + userid + " not found!"));
+            .orElseThrow(() -> new ResourceNotFoundException("User id " + userid + " not found!"));
         roleService.findRoleById(roleid);
 
         if (userrepos.checkUserRolesCombo(userid,
@@ -236,7 +236,7 @@ public class UserServiceImpl
                 roleid);
         } else
         {
-            throw new EntityNotFoundException("Role and User Combination Does Not Exists");
+            throw new ResourceNotFoundException("Role and User Combination Does Not Exists");
         }
     }
 
@@ -247,7 +247,7 @@ public class UserServiceImpl
         long roleid)
     {
         userrepos.findById(userid)
-            .orElseThrow(() -> new EntityNotFoundException("User id " + userid + " not found!"));
+            .orElseThrow(() -> new ResourceNotFoundException("User id " + userid + " not found!"));
         roleService.findRoleById(roleid);
 
         if (userrepos.checkUserRolesCombo(userid,
@@ -260,7 +260,7 @@ public class UserServiceImpl
                 roleid);
         } else
         {
-            throw new EntityExistsException("Role and User Combination Already Exists");
+            throw new ResourceFoundException("Role and User Combination Already Exists");
         }
     }
 }
